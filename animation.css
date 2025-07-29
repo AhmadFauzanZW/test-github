@@ -1,0 +1,35 @@
+@keyframes appear {
+  0% {
+    scale: 0.8;
+    opacity: 0;
+    transform: translateY(150%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(5%);
+  }
+}
+
+.appear {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 70%;
+  will-change: opacity, transform;
+}
+
+/* @keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+.slideIn {
+  animation: slideIn linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+} */

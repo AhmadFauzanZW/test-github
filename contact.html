@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact UrbanSole.id</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome CDN for contact and social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+  <!-- Link CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html"><div class="logo"><span class="blue">Urban</span><span class="orange">Sole</span>.id</div></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Product</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="header-contact">
+    <div class="header-content">
+      Let's Connect With Us
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="contact-page">
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <!-- Contact Info & Map -->
+    <div class="contact-info">
+      <h2>Contact Details</h2>
+
+      <div class="info-item">
+        <i class="fab fa-whatsapp"></i>
+        WhatsApp Business: +62 812 3456 7890
+      </div>
+
+      <div class="info-item">
+        <i class="fab fa-instagram"></i>
+        Instagram: @urbansole.id
+      </div>
+
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt"></i>
+        Jalan Sudirman No. 123, Jakarta, Indonesia
+      </div>
+
+      <!-- Map -->
+      <div class="map">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb= !1m18!1m12!1m3!1d3966.605202618489!2d106.8271722143086!3d-6.214545395507249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e8bf480993%3A0x4b42fb9252ef9c4e!2sGedung%20Sudirman!5e0!3m2!1sen!2sid!4v1620231212345!5m2!1sen!2sid"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="top">
+      <div class="left">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Product</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="center">
+        <h3>UrbanSole.id</h3>
+        <p>Our mission is to provide high-quality, stylish footwear that resonates with the urban lifestyle.</p>
+      </div>
+      <div class="right">
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a> 
+          <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a> 
+          <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="bottom">
+      <p>&copy; 2025 UrbanSole.id. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="index.js" defer></script>
+
+</body>
+</html>

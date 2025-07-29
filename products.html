@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UrbanSole.id - All Products</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Font Awesome CDN for contact and social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navbar" id="navbar">
+    <a href="index.html"><div class="logo"><span class="blue">Urban</span><span class="orange">Sole</span>.id</div></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Product</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- Top Banner -->
+  <header class="header-products">
+    <div class="header-content">
+      Explore Our Collection
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="products-page">
+
+    <!-- Sidebar Filters -->
+    <aside class="sidebar">
+      <h3>Categories</h3>
+      <ul class="filter-list">
+        <li onclick="filterProducts('all')" class="filter-list-item active">All</li>
+        <li onclick="filterProducts('sneakers')" class="filter-list-item">Sneakers</li>
+        <li onclick="filterProducts('casual')" class="filter-list-item">Casual</li>
+        <li onclick="filterProducts('slip-on')" class="filter-list-item">Slip-On</li>
+      </ul>
+    </aside>
+
+    <!-- Product Grid -->
+    <main class="products">
+      <div class="product-grid" id="productGrid">
+        <!-- Product Cards will be inserted here -->
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <div class="top">
+      <div class="left">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Product</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="center">
+        <h3>UrbanSole.id</h3>
+        <p>Our mission is to provide high-quality, stylish footwear that resonates with the urban lifestyle.</p>
+      </div>
+      <div class="right">
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a> 
+          <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a> 
+          <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="bottom">
+      <p>&copy; 2025 UrbanSole.id. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="index.js"></script>
+  <script>
+    const products = [
+      {
+      name: "StreetFlow Pro",
+      category: "sneakers",
+      description: "Lightweight, breathable sneaker for daily urban adventures.",
+      price: "$89.99",
+      image: "Assets/Sneakers 4.png"
+      },
+      {
+      name: "NeonStep OG",
+      category: "sneakers",
+      description: "Bold neon colors and retro vibes in a modern silhouette.",
+      price: "$75.50",
+      image: "Assets/Sneakers.png"
+      },
+      {
+      name: "MetroFlex Lite",
+      category: "casual",
+      description: "Perfect blend of comfort and style for everyday wear.",
+      price: "$65.00",
+      image: "Assets/Casual Shoes.png"
+      },
+      {
+      name: "NightRunner 2K",
+      category: "sneakers",
+      description: "Reflective details and ultra-comfort sole for night runs.",
+      price: "$99.99",
+      image: "Assets/Sneakers 3.png"
+      },
+      {
+      name: "CloudSlide",
+      category: "slip-on",
+      description: "Minimalist slip-ons made for easy, all-day comfort.",
+      price: "$59.00",
+      image: "Assets/Slip-On Shoes.png"
+      },
+      {
+      name: "CityStride",
+      category: "casual",
+      description: "Versatile casual shoes that match every outfit.",
+      price: "$69.99",
+      image: "Assets/Casual 2.png"
+      },
+      {
+      name: "UrbanGlide",
+      category: "slip-on",
+      description: "Trendy slip-ons with premium cushioning.",
+      price: "$72.00",
+      image: "Assets/Slip-On 2.png"
+      },
+      {
+      name: "TrailHopper",
+      category: "sneakers",
+      description: "Designed for city trails and weekend explorations.",
+      price: "$85.00",
+      image: "Assets/Sneakers 2.png"
+      }
+    ];
+
+    function filterProducts(category = 'all') {
+
+
+      const grid = document.getElementById("productGrid");
+      grid.innerHTML = "";
+
+      const filtered = category === 'all' ? products : products.filter(p => p.category === category);
+
+      if (filtered.length === 0) {
+      grid.innerHTML = "<p>No products found in this category.</p>";
+      return;
+      }
+
+      filtered.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <div class="product-info">
+          <h3>${product.name}</h3>
+          <p>${product.description}</p>
+          <div class="price">${product.price}</div>
+          </div>
+      `;
+      grid.appendChild(card);
+      });
+    }
+
+    const filterListItems = document.querySelectorAll('.filter-list-item');
+    filterListItems.forEach(item => {
+      item.addEventListener('click', () => {
+        filterListItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+      });
+    });
+
+    window.onload = () => filterProducts('all');
+  </script>
+
+</body>
+</html>

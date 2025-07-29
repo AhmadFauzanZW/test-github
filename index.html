@@ -1,263 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Todo App</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .container {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 500px;
-            padding: 30px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 2rem;
-        }
-
-        .input-container {
-            display: flex;
-            margin-bottom: 20px;
-        }
-
-        #todoInput {
-            flex: 1;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 5px 0 0 5px;
-            font-size: 16px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        #todoInput:focus {
-            border-color: #667eea;
-        }
-
-        #addBtn {
-            padding: 12px 20px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s;
-        }
-
-        #addBtn:hover {
-            background: #5a6fd8;
-        }
-
-        .todo-list {
-            list-style: none;
-        }
-
-        .todo-item {
-            background: #f8f9fa;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s;
-        }
-
-        .todo-item:hover {
-            background: #e9ecef;
-        }
-
-        .todo-item.completed {
-            background: #d4edda;
-            text-decoration: line-through;
-            opacity: 0.7;
-        }
-
-        .todo-text {
-            flex: 1;
-            font-size: 16px;
-            color: #333;
-        }
-
-        .todo-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .complete-btn, .delete-btn {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 12px;
-            transition: all 0.3s;
-        }
-
-        .complete-btn {
-            background: #28a745;
-            color: white;
-        }
-
-        .complete-btn:hover {
-            background: #218838;
-        }
-
-        .delete-btn {
-            background: #dc3545;
-            color: white;
-        }
-
-        .delete-btn:hover {
-            background: #c82333;
-        }
-
-        .stats {
-            margin-top: 20px;
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-        }
-
-        .empty-state {
-            text-align: center;
-            color: #666;
-            margin-top: 20px;
-            font-style: italic;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UrbanSole.id</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Font Awesome CDN for contact and social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+  <!-- External CSS file -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="parallax.css">
+  <!-- <link rel="stylesheet" href="animation.css"> -->
 </head>
 <body>
-    <div class="container">
-        <h1>📝 My Todo App</h1>
+  <nav class="navbar" id="navbar">
+    <a href="index.html"><div class="logo"><span class="blue">Urban</span><span class="orange">Sole</span>.id</div></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Product</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
 
-        <div class="input-container">
-            <input type="text" id="todoInput" placeholder="Add a new task..." maxlength="100">
-            <button id="addBtn">Add</button>
-        </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="Assets/Hero Section.png" alt="Hero Sneaker" class="background" />
+    <div class="hero-content">
+      <h1>Your Step, Your Style</h1>
+      <p>Discover the freshest urban footwear designed for the streets of tomorrow.</p>
+      <a href="products.html"><button>Shop Now</button></a>
+    </div>
+  </section>
 
-        <ul id="todoList" class="todo-list"></ul>
+  <!-- About Section - Parallax -->
+  <section class="parallax shrink">
+    <h2 class="appear">URBANSOLE</h2>
+    <img src="Assets/Urban_transparent.png" alt="">
+  </section>
 
-        <div id="emptyState" class="empty-state">
-            No tasks yet. Add one above! 🎯
-        </div>
-
-        <div class="stats" id="stats">
-            Total: 0 | Completed: 0 | Remaining: 0
-        </div>
+  <!-- About Section - Content -->
+  <section class="about">
+    <h2 class="section-title leftSlideIn">About</h2>
+    <div class="about-content">
+      <p class="slideUp">UrbanSole.id is more than just shoes — it's a lifestyle brand built for the modern youth who live between the rhythm of the city and the pulse of culture.</p>
+      <p class="slideUp">Our mission is to provide high-quality, stylish footwear that resonates with the urban lifestyle. We believe in creating products that not only look good but also feel good, allowing you to express your individuality.</p>
+      <p class="slideUp">Join us on this journey as we redefine urban fashion, one step at a time.</p>
     </div>
 
-    <script>
-        class TodoApp {
-            constructor() {
-                this.todos = JSON.parse(localStorage.getItem('todos')) || [];
-                this.todoInput = document.getElementById('todoInput');
-                this.addBtn = document.getElementById('addBtn');
-                this.todoList = document.getElementById('todoList');
-                this.emptyState = document.getElementById('emptyState');
-                this.stats = document.getElementById('stats');
+  </section>
 
-                this.init();
-            }
+  <!-- Featured Products -->
+  <section class="products">
+    <div class="products-header">
+      <h2 class="section-title leftSlideIn">Featured Products</h2>
+      <a href="products.html"><button>Shop Now</button></a>
+    </div>
+    <div class="product-grid slideUp">
+      <div class="product-card">
+        <img src="Assets/Slip-On Shoes.png" alt="StreetFlow Pro" />
+        <div class="info">
+          <h3>StreetFlow Pro</h3>
+          <p>Slip-on</p>
+          <div class="price">IDR 789.900</div>
+        </div>
+      </div>
+      <div class="product-card slideUp">
+        <img src="Assets/Sneakers.png" alt="NeonStep OG" />
+        <div class="info">
+          <h3>NeonStep OG</h3>
+          <p>Sneakers</p>
+          <div class="price">IDR 900.000</div>
+        </div>
+      </div>
+      <div class="product-card slideUp">
+        <img src="Assets/Casual Shoes.png" alt="MetroFlex Lite" />
+        <div class="info">
+          <h3>Levis White Shoes</h3>
+          <p>Casual</p>
+          <div class="price">IDR 575.000</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            init() {
-                this.addBtn.addEventListener('click', () => this.addTodo());
-                this.todoInput.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') this.addTodo();
-                });
+  <!-- Why Choose Us -->
+  <section class="features">
+    <h2 class="section-title leftSlideIn">Why Choose UrbanSole?</h2>
+    <div class="accordion">
+      <div class="accordion-item slideUp">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          Modern & Trendy Design
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+        </div>
+        <div class="accordion-body">
+          Our shoes are crafted to match the latest trends while staying true to urban culture.
+        </div>
+      </div>
+      <div class="accordion-item slideUp">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          Comfortable for Daily Use
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+        </div>
+        <div class="accordion-body">
+          Designed with premium cushioning and breathable materials for all-day comfort.
+        </div>
+      </div>
+      <div class="accordion-item slideUp">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          Affordable Price
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+        </div>
+        <div class="accordion-body">
+          High-quality without the luxury markup — fashion that fits your budget.
+        </div>
+      </div>
+      <div class="accordion-item slideUp">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          Available Online & Offline
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+        </div>
+        <div class="accordion-body">
+          Shop seamlessly online or visit our stores in major cities across Indonesia.
+        </div>
+      </div>
+    </div>
+  </section>
 
-                this.render();
-            }
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2 class="section-title leftSlideIn">What Our Customers Say</h2>
+    <div class="testimonial-carousel slideUp">
+      <div class="testimonial-card">
+        <img src="Assets/Quote.png" alt="">
+        <p class="testimonial-review">UrbanSole has the freshest kicks in town. I get compliments every time I wear them!</p>
+        <hr>
+        <div class="testimonial-user">
+          <img src="Assets/Avatar 4.png" alt="Alex M." />
+          <h4>Alex M.</h4>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <img src="Assets/Quote.png" alt="">
+        <p class="testimonial-review">So comfortable and stylish! Perfect for city life and long days on my feet.</p>
+        <hr>
+        <div class="testimonial-user">
+          <img src="Assets/Avatar 3.png" alt="Nina L." />
+          <h4>Nina L.</h4>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <img src="Assets/Quote.png" alt="">
+        <p class="testimonial-review">Great prices for such high-quality sneakers. Will definitely be a returning customer.</p>
+        <hr>
+        <div class="testimonial-user">
+          <img src="Assets/Avatar 2.png" alt="Rafi D." />
+          <h4>Rafi D.</h4>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <img src="Assets/Quote.png" alt="">
+        <p class="testimonial-review">I love how UrbanSole blends streetwear with urban culture. The designs are fire!</p>
+        <hr>
+        <div class="testimonial-user">
+          <img src="Assets/Avatar 1.png" alt="Maya T." />
+          <h4>Maya T.</h4>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            addTodo() {
-                const text = this.todoInput.value.trim();
-                if (!text) return;
+  <!-- Footer -->
+  <footer>
+    <div class="top">
+      <div class="left">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Product</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="center">
+        <h3>UrbanSole.id</h3>
+        <p>Our mission is to provide high-quality, stylish footwear that resonates with the urban lifestyle.</p>
+      </div>
+      <div class="right">
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a> 
+          <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a> 
+          <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="bottom">
+      <p>&copy; 2025 UrbanSole.id. All rights reserved.</p>
+    </div>
+  </footer>
 
-                const todo = {
-                    id: Date.now(),
-                    text: text,
-                    completed: false,
-                    createdAt: new Date().toLocaleString()
-                };
-
-                this.todos.push(todo);
-                this.todoInput.value = '';
-                this.saveTodos();
-                this.render();
-            }
-
-            toggleTodo(id) {
-                this.todos = this.todos.map(todo =>
-                    todo.id === id ? { ...todo, completed: !todo.completed } : todo
-                );
-                this.saveTodos();
-                this.render();
-            }
-
-            deleteTodo(id) {
-                this.todos = this.todos.filter(todo => todo.id !== id);
-                this.saveTodos();
-                this.render();
-            }
-
-            saveTodos() {
-                localStorage.setItem('todos', JSON.stringify(this.todos));
-            }
-
-            updateStats() {
-                const total = this.todos.length;
-                const completed = this.todos.filter(todo => todo.completed).length;
-                const remaining = total - completed;
-
-                this.stats.textContent = `Total: ${total} | Completed: ${completed} | Remaining: ${remaining}`;
-            }
-
-            render() {
-                this.todoList.innerHTML = '';
-
-                if (this.todos.length === 0) {
-                    this.emptyState.style.display = 'block';
-                } else {
-                    this.emptyState.style.display = 'none';
-
-                    this.todos.forEach(todo => {
-                        const li = document.createElement('li');
-                        li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
-
-                        li.innerHTML = `
-                            <span class="todo-text">${todo.text}</span>
-                            <div class="todo-actions">
-                                <button class="complete-btn" onclick="app.toggleTodo(${todo.id})">
-                                    ${todo.completed ? 'Undo' : 'Done'}
-                                </button>
-                                <button class="delete-btn" onclick="app.deleteTodo(${todo.id})">
-                                    Delete
-                                </button>
-                            </div>
-                        `;
-
-                        this.todoList.appendChild(li);
-                    });
-                }
-
-                this.updateStats();
-            }
-        }
-
-        // Initialize the app
-        const app = new TodoApp();
-    </script>
+  <script src="index.js"></script>
 </body>
 </html>
